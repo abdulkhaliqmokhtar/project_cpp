@@ -1,4 +1,5 @@
 #include <iostream>
+#include <time.h>
 #include <cstdlib>  // for psuedorandom sequence generation: rand() and srand()
 
 // randomNumberGenerator() will create random number on every program run
@@ -37,29 +38,41 @@ int randomNumberGenerator()
 
 int main ()
 {
-    // prompt user with integer range
-    std::cout << "Please enter an integer between 0 to 100: ";
 
-    // initialize user input as integer and take their input
-    int userNumber{};
-    std::cin >> userNumber;
+    int userNumber{};                               // initialize user input as integer and take their input
+    int correctNumber{randomNumberGenerator()};     // initialize random integer generated
 
-    // initialize random integer generated
-    int correctNumber{randomNumberGenerator()};
+    /* 
+        do/while loop execute the code block once before checking if the condition is true,
+        then it will repeat the loop as long as the condition is true
+    */
+    do {
 
-    // create conditional statement
-    if (userNumber > correctNumber)
-    {
-        std::cout << "Your integer is higher than the correct answer. Try again!" << '\n';
-    }
-    else if (userNumber < correctNumber)
-    {
-        std::cout << "Your integer is lower than the correct answer. Try again!" << '\n';
-    }
-    else
-    {
-        std::cout << "Yay, you guessed it correctly!" << '\n';
-    }
+        // prompt user with integer range
+        std::cout << "Please enter an integer between 0 to 100: ";
+        std::cin >> userNumber;
 
+        // conditional statement
+        // if guessed integer is more than random integer
+        if (userNumber > correctNumber)
+        {
+            std::cout << "Your integer is higher than the correct answer. Try again!" << '\n';
+        }
+
+        // if guessed integer is less than random number
+        else if (userNumber < correctNumber)
+        {
+            std::cout << "Your integer is lower than the correct answer. Try again!" << '\n';
+        }
+
+        // anything else (guessed integer equals to random number)
+        else
+        {
+            std::cout << "Yay, you guessed it correctly!" << '\n';
+        }
+
+    // condition to repeat the do/while loop
+    } while (userNumber != correctNumber);
+    
     return 0;
 }
