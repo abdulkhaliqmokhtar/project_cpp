@@ -47,9 +47,19 @@ int main ()
     // initialize random integer generated
     int correctNumber{randomNumberGenerator()};
 
-    // output: testing purpose for user input and random number integer stored in program before proceeding
-    std::cout << "User input is: " << userNumber << '\n';
-    std::cout << "Random number is: " << correctNumber << '\n';
+    // create conditional statement
+    if (userNumber > correctNumber)
+    {
+        std::cout << "Your integer is higher than the correct answer. Try again!" << '\n';
+    }
+    else if (userNumber < correctNumber)
+    {
+        std::cout << "Your integer is lower than the correct answer. Try again!" << '\n';
+    }
+    else
+    {
+        std::cout << "Yay, you guessed it correctly!" << '\n';
+    }
 
     return 0;
 }
