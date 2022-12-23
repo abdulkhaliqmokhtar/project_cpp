@@ -1,5 +1,5 @@
 #include <iostream>
-#include <time.h>
+#include <ctime>
 #include <cstdlib>  // for psuedorandom sequence generation: rand() and srand()
 
 // randomNumberGenerator() will create random number on every program run
