@@ -36,6 +36,8 @@ int randomNumberGenerator()
     return randomNumber;
 }
 
+int continuePlaying(); // declare continuePlaying() function to be used in the guessRandomNumber() function
+
 int guessRandomNumber()
 {
     int userNumber{};                               // initialize user input as integer and take their input
@@ -73,6 +75,30 @@ int guessRandomNumber()
     // condition to repeat the do/while loop
     } while (userNumber != correctNumber);
 
+    return continuePlaying(); // prompt user with options to continue playing or exit after game has finished
+}
+
+int continuePlaying() // define the continuePlaying() function
+{
+    char userChoice{}; // initialize character which user will input to continue playing or not (y for yes and n for no)
+
+    std::cout << "Do you wish to play again? (y/n) ";
+    std::cin >> userChoice;
+
+        if (userChoice == 'y' || userChoice == 'Y')         // taking capitalized Y into account
+        {
+            return guessRandomNumber(); // keep playing
+        }
+        else if (userChoice == 'n' || userChoice == 'N')    // taking capitalized N into account
+        {
+            std::cout << "Thank you for playing!" << '\n';
+            return 0;
+        }
+        // issue: if user input other than the y/Y/n/N char, the program will exit without message
+        else
+        {
+            return 0;
+        }
     return 0;
 }
 
