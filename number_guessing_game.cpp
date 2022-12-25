@@ -82,6 +82,7 @@ int continuePlaying() // define the continuePlaying() function
 {
     char userChoice{}; // initialize character which user will input to continue playing or not (y for yes and n for no)
 
+    wrongChar: // label for if user input the wrong character
     std::cout << "Do you wish to play again? (y/n) ";
     std::cin >> userChoice;
 
@@ -94,11 +95,13 @@ int continuePlaying() // define the continuePlaying() function
             std::cout << "Thank you for playing!" << '\n';
             return 0;
         }
-        // issue: if user input other than the y/Y/n/N char, the program will exit without message
+        // fixed issue: if user input other than the y/Y/n/N char, the program will now goto prompt user back with the options
         else
         {
-            return 0;
+            std::cout << "Your input is unrecognized, choose between 'y' or 'n'!" << '\n';
+            goto wrongChar; // unconditional jump statement (goto) to jump back to prompt user with options to play again and input the right char (y/n)
         }
+
     return 0;
 }
 
