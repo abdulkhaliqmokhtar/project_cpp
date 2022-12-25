@@ -93,7 +93,6 @@ int continuePlaying() // define the continuePlaying() function
         else if (userChoice == 'n' || userChoice == 'N')    // taking capitalized N into account
         {
             std::cout << "Thank you for playing!" << '\n';
-            return 0;
         }
         // fixed issue: if user input other than the y/Y/n/N char, the program will now goto prompt user back with the options
         else
