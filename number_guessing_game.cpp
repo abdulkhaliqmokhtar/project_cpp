@@ -36,9 +36,8 @@ int randomNumberGenerator()
     return randomNumber;
 }
 
-int main ()
+int guessRandomNumber()
 {
-
     int userNumber{};                               // initialize user input as integer and take their input
     int correctNumber{randomNumberGenerator()};     // initialize random integer generated
 
@@ -73,6 +72,14 @@ int main ()
 
     // condition to repeat the do/while loop
     } while (userNumber != correctNumber);
+
+    return 0;
+}
+
+int main ()
+{
+
+    guessRandomNumber();
     
     return 0;
 }
